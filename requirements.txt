@@ -1,0 +1,5 @@
+geopy==1.16.0
+pymongo==3.6.0
+requests==2.18.4
+requests-futures==0.9.7
+requests-oauthlib==0.8.0
