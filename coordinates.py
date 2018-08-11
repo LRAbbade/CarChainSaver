@@ -14,6 +14,13 @@ class Coordinate:
 
         return geodesic(c1, c2).meters
 
+    @staticmethod
+    def Get_coordinate_from_json(json):
+        if json['type'] != 'Point':
+            raise Exception('GeoJson should be of type Point, json given: ' + repr(json))
+
+        return Coordinate(*json['coordinates'][::-1])
+
     def __init__(self, lat=0, lng=0):
         self.lat = lat
         self.lng = lng
