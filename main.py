@@ -25,18 +25,11 @@ for document in cursor:
         to_save[plate] = []
 
     trip = [Coordinate.Get_coordinate_from_json(obj['location']) for obj in document['trip']]
-    total_meters = []
-    for i in range(1, len(trip)):
-        total_meters.append(Coordinate.Distance(trip[i-1], trip[i]))
-
+    total_meters = [Coordinate.Distance(trip[i-1], trip[i]) for i in range(1, len(trip))]
     to_save[plate].append(total_meters)
 
-jsons = []
-for plate, trips in to_save.items():
-    jsons.append({
-        'car_plate' : plate,
-        'data' : trips
-    })
+jsons = [{'car_plate':plate, 'data':trips} for plate, trips in to_save.items()]
+pprint(jsons)   # for testing purposes
 
 # with FuturesSession(max_workers=5) as session:
 #     futures = []
