@@ -1,5 +1,5 @@
 db_connector.py
-endpoint_ip.py
+endpoint.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
